@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>K-S检验 // My New Hugo Site</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.113.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="K-S检验"/>
+<meta name="twitter:description" content="目的：随机产生出100个整数（可重复），组成 {$x_i$} 。以 {$x_i$} 的分布产生出10000个随机数， 构成 {$y_i$}。并用K-S检验说明 {$x_i$} 和 {$y_i$} 的分布是否⼀致。 作者：王柏廷 0. $K-S$ 检验理论准备 $K-S$ 检验(Kolmogorov-Smirnov test). 是一种非参数检验方法，主要用于检验组样本是否来自于某个概率分布，或者比较两组样本的分布是否相同。$K-S$检验的原理是将累积分布函数进行比较，通过计算两个累积分布函数之间的最大差值来判断样本是否来自于同分布。
+① 对于单个样本的情况，我们先将样本从小到大排序，并计算出每个数据点的经验分布函数值 $F(x)$。然后根据所假设的分布，计算出理论分布的累积分布函数 $G(x)$，并比较 $F(x)$ 与 $G(x)$ 的差距。$KS$ 统计量$D=max|F(x)-G(x)|$ 反映了这两个分布函数之间的最大差距。如果样本符合所假设的分布，则 $ D$ 的值应该小于某个临界值（根据样本大小和置信度确定）。否则就拒绝原假设，认为样本不符合所假设的分布。
+② 对于两个样本的情况，我们需要先将两个样本都排序，并计算出其中一个样本的经验分布函数值 $F_1(x)$ 和另一个样本的经验分布函数值 $F_2(x)$。然后比较这两个样本的分布，得出它们之间的最大差距 $ D=max|F_1(x)-F_2(x)|$。如果两个样本来自于同一个分布，则 $D $的值应该小于某个临界值（根据样本大小和置信度确定）。否则就拒绝原假设，认为两个样本来自于不同的分布。
+当 $KS$ 检验的统计量 $𝐷$ 大于临界值时，即：
+$$D &gt; D_{KS},$$
+则两个随机变量的概率分布是不一致的。临界值 $D_{KS}$由下式确定：
+$$P(D &gt; D_{KS}) = \alpha,$$
+即两个分布不一致时的概率为 $\alpha$。$\alpha$ 是显著水平，而置信度为 $𝑝 = 1 − \alpha$。或者说，在 $D &lt; D_{KS}$ 时，两个分布是一致的置信度为 $𝑝$。
+临界值 $D_{KS}$和两个分布的样本数 $(N_1,N_2)$有关，在样本数足够大时（超过$35$），临界值为："/>
+
+    <meta property="og:title" content="K-S检验" />
+<meta property="og:description" content="目的：随机产生出100个整数（可重复），组成 {$x_i$} 。以 {$x_i$} 的分布产生出10000个随机数， 构成 {$y_i$}。并用K-S检验说明 {$x_i$} 和 {$y_i$} 的分布是否⼀致。 作者：王柏廷 0. $K-S$ 检验理论准备 $K-S$ 检验(Kolmogorov-Smirnov test). 是一种非参数检验方法，主要用于检验组样本是否来自于某个概率分布，或者比较两组样本的分布是否相同。$K-S$检验的原理是将累积分布函数进行比较，通过计算两个累积分布函数之间的最大差值来判断样本是否来自于同分布。
+① 对于单个样本的情况，我们先将样本从小到大排序，并计算出每个数据点的经验分布函数值 $F(x)$。然后根据所假设的分布，计算出理论分布的累积分布函数 $G(x)$，并比较 $F(x)$ 与 $G(x)$ 的差距。$KS$ 统计量$D=max|F(x)-G(x)|$ 反映了这两个分布函数之间的最大差距。如果样本符合所假设的分布，则 $ D$ 的值应该小于某个临界值（根据样本大小和置信度确定）。否则就拒绝原假设，认为样本不符合所假设的分布。
+② 对于两个样本的情况，我们需要先将两个样本都排序，并计算出其中一个样本的经验分布函数值 $F_1(x)$ 和另一个样本的经验分布函数值 $F_2(x)$。然后比较这两个样本的分布，得出它们之间的最大差距 $ D=max|F_1(x)-F_2(x)|$。如果两个样本来自于同一个分布，则 $D $的值应该小于某个临界值（根据样本大小和置信度确定）。否则就拒绝原假设，认为两个样本来自于不同的分布。
+当 $KS$ 检验的统计量 $𝐷$ 大于临界值时，即：
+$$D &gt; D_{KS},$$
+则两个随机变量的概率分布是不一致的。临界值 $D_{KS}$由下式确定：
+$$P(D &gt; D_{KS}) = \alpha,$$
+即两个分布不一致时的概率为 $\alpha$。$\alpha$ 是显著水平，而置信度为 $𝑝 = 1 − \alpha$。或者说，在 $D &lt; D_{KS}$ 时，两个分布是一致的置信度为 $𝑝$。
+临界值 $D_{KS}$和两个分布的样本数 $(N_1,N_2)$有关，在样本数足够大时（超过$35$），临界值为：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangboting.github.io/post/blog/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-06T23:58:13+08:00" />
+<meta property="article:modified_time" content="2023-06-06T23:58:13+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://wangboting.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">My New Hugo Site</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">K-S检验</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 6, 2023
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h3 id="目的随机产生出100个整数可重复组成-x_i-以-x_i-的分布产生出10000个随机数-构成-y_i并用k-s检验说明-x_i-和-y_i-的分布是否致">目的：随机产生出100个整数（可重复），组成 {$x_i$} 。以 {$x_i$} 的分布产生出10000个随机数， 构成 {$y_i$}。并用K-S检验说明 {$x_i$} 和 {$y_i$} 的分布是否⼀致。</h3>
+<h3 id="作者王柏廷">作者：王柏廷</h3>
+<h3 id="0-k-s-检验理论准备">0. $K-S$ 检验理论准备</h3>
+<p>  $K-S$ 检验(Kolmogorov-Smirnov test). 是一种非参数检验方法，主要用于检验组样本是否来自于某个概率分布，或者比较两组样本的分布是否相同。$K-S$检验的原理是将累积分布函数进行比较，通过计算两个累积分布函数之间的最大差值来判断样本是否来自于同分布。</p>
+<p>  ① <strong>对于单个样本的情况</strong>，我们先将样本从小到大排序，并计算出每个数据点的经验分布函数值 $F(x)$。然后根据所假设的分布，计算出理论分布的累积分布函数 $G(x)$，并比较 $F(x)$ 与 $G(x)$ 的差距。$KS$ 统计量$D=max|F(x)-G(x)|$ 反映了这两个分布函数之间的最大差距。如果样本符合所假设的分布，则 $ D$ 的值应该小于某个临界值（根据样本大小和置信度确定）。否则就拒绝原假设，认为样本不符合所假设的分布。</p>
+<p>  ② <strong>对于两个样本的情况</strong>，我们需要先将两个样本都排序，并计算出其中一个样本的经验分布函数值 $F_1(x)$ 和另一个样本的经验分布函数值 $F_2(x)$。然后比较这两个样本的分布，得出它们之间的最大差距 $ D=max|F_1(x)-F_2(x)|$。如果两个样本来自于同一个分布，则 $D $的值应该小于某个临界值（根据样本大小和置信度确定）。否则就拒绝原假设，认为两个样本来自于不同的分布。</p>
+<p>  当 $KS$ 检验的统计量 $𝐷$ 大于临界值时，即：</p>
+<p>$$D &gt; D_{KS},$$</p>
+<p>则两个随机变量的概率分布是不一致的。临界值 $D_{KS}$由下式确定：</p>
+<p>$$P(D &gt; D_{KS}) = \alpha,$$</p>
+<p>  即两个分布不一致时的概率为 $\alpha$。$\alpha$ 是显著水平，而置信度为 $𝑝 = 1 − \alpha$。或者说，在 $D &lt; D_{KS}$ 时，两个分布是一致的置信度为 $𝑝$。</p>
+<p>  临界值 $D_{KS}$和两个分布的样本数 $(N_1,N_2)$有关，在样本数足够大时（超过$35$），临界值为：</p>
+<p>$$D_{KS}= \frac{C(\alpha)}{\sqrt{N_e}} ,$$</p>
+<p>其中：
+$$ C(\alpha) = \sqrt{-\frac{1}{2}\ln(\frac{\alpha}{2})},$$</p>
+<p>$$N_e = \frac{N_1N_2}{N_1+N_2}.$$</p>
+<p>如果是对单一样本的检验，$ N_e = N$。</p>
+<p>  $K-S$ 检验的临界值$D_{KS}$：
+<img src="attachment:image.png" alt="image.png"></p>
+<h3 id="1-问题介绍">1. 问题介绍</h3>
+<p>  我们需要随机产生出$100$个可重复的整数，组成分布 {$x_i$} ，然后以 {$x_i$} 的分布产生出$10000$个随机数， 构成 {$y_i$}，之后通过 $K-S$ 检验来说明 {$x_i$} 和 {$y_i$} 的两个分布是否⼀致。</p>
+<h3 id="2-解决办法">2. 解决办法</h3>
+<p>  ① 使用Python的numpy中的random来生成随机整数，使用函数randint来指定整数范围。例如，生成100个范围在0到100之间的可重复的随机整数，代码为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> scipy.stats <span style="color:#66d9ef">as</span> spstat
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成100个可重复的随机数组成X</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">101</span>,size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span></code></pre></div><p>  然后画出直方图：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 绘制X分布的直方图</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>hist(x, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span></code></pre></div><p>  ② 接着，我们可以使用numpy中的random.choice()函数基于 $ X$的分布生成 $10000$个随机数，并同样使用matplotlib库中的plt.hist绘制直方图。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 基于X分布生成10000个随机数构成Y</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(x, size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 绘制Y分布的直方图</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>hist(y, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+</span></span></code></pre></div><p>  ③ 最后使用scipy.stats.ks_2samp 来对双样本进行 $K-S$检验。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 进行K-S检验</span>
+</span></span><span style="display:flex;"><span>kst<span style="color:#f92672">=</span>spstat<span style="color:#f92672">.</span>ks_2samp(x,y)
+</span></span></code></pre></div><h3 id="3-具体结果">3. 具体结果</h3>
+<h3 id="4-结论与讨论">4. 结论与讨论</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><h3 id="5-脚本">5. 脚本</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> rcParams
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> scipy.stats <span style="color:#66d9ef">as</span> spstat
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;font.sans-serif&#39;</span>]<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;SimSun&#39;</span>] <span style="color:#75715e">#用来正常显示中文标签</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;axes.unicode_minus&#39;</span>]<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span> <span style="color:#75715e">#用来正常显示负号</span>
+</span></span><span style="display:flex;"><span>config <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;font.family&#34;</span>: <span style="color:#e6db74">&#34;serif&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;font.size&#34;</span>: <span style="color:#ae81ff">15</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;mathtext.fontset&#34;</span>:<span style="color:#e6db74">&#34;stix&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;font.serif&#34;</span>:[<span style="color:#e6db74">&#34;SimSun&#34;</span>],
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>rcParams<span style="color:#f92672">.</span>update(config)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成100个可重复的随机数,范围是0-100，组成分布X</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">101</span>,size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 绘制X分布的直方图</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>hist(x, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100个随机数&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;$X$分布的随机数&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;$x_i$&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;$N_1$&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#plt.savefig(&#34;x1.png&#34;)</span>
+</span></span></code></pre></div><pre><code>&lt;matplotlib.legend.Legend at 0x19ce38a1f70&gt;
+</code></pre>
+<p><img src="output_12_1.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 基于X分布生成10000个随机数构成Y</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(x, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 绘制Y分布的直方图</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>hist(y, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>,color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>,label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1000个随机数&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;基于$X$分布生成的随机数分布$Y$&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;$y_i$&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;$N_2$&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#34;y1.png&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 进行K-S检验</span>
+</span></span><span style="display:flex;"><span>kst<span style="color:#f92672">=</span>spstat<span style="color:#f92672">.</span>ks_2samp(x,y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看结果</span>
+</span></span><span style="display:flex;"><span>print(kst)
+</span></span></code></pre></div><pre><code>KstestResult(statistic=0.036, pvalue=0.9995902022297974)
+</code></pre>
+<p><img src="output_13_1.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
