@@ -2,39 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Love Astro</title>
-    <link>http://example.org/post/</link>
+    <link>https://wangboting.github.io/post/</link>
     <description>Recent content in Posts on Love Astro</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Tue, 06 Jun 2023 23:58:13 +0800</lastBuildDate><atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>K-S检验</title>
-      <link>http://example.org/post/blog/</link>
-      <pubDate>Tue, 06 Jun 2023 23:58:13 +0800</pubDate>
-      
-      <guid>http://example.org/post/blog/</guid>
-      <description>目的：随机产生出100个整数（可重复），组成 {$x_i$} 。以 {$x_i$} 的分布产生出10000个随机数， 构成 {$y_i$}。并用K-S检验说明 {$x_i$} 和 {$y_i$} 的分布是否⼀致。 作者：王柏廷 0. $K-S$ 检验理论准备 $K-S$ 检验(Kolmogorov-Smirnov test). 是一种非参数检验方法，主要用于检验组样本是否来自于某个概率分布，或者比较两组样本的分布是否相同。$K-S$检验的原理是将累积分布函数进行比较，通过计算两个累积分布函数之间的最大差值来判断样本是否来自于同分布。
-① 对于单个样本的情况，我们先将样本从小到大排序，并计算出每个数据点的经验分布函数值 $F(x)$。然后根据所假设的分布，计算出理论分布的累积分布函数 $G(x)$，并比较 $F(x)$ 与 $G(x)$ 的差距。$KS$ 统计量$D=max|F(x)-G(x)|$ 反映了这两个分布函数之间的最大差距。如果样本符合所假设的分布，则 $ D$ 的值应该小于某个临界值（根据样本大小和置信度确定）。否则就拒绝原假设，认为样本不符合所假设的分布。
-② 对于两个样本的情况，我们需要先将两个样本都排序，并计算出其中一个样本的经验分布函数值 $F_1(x)$ 和另一个样本的经验分布函数值 $F_2(x)$。然后比较这两个样本的分布，得出它们之间的最大差距 $ D=max|F_1(x)-F_2(x)|$。如果两个样本来自于同一个分布，则 $D $的值应该小于某个临界值（根据样本大小和置信度确定）。否则就拒绝原假设，认为两个样本来自于不同的分布。
-当 $KS$ 检验的统计量 $𝐷$ 大于临界值时，即：
-$$D &amp;gt; D_{KS},$$
-则两个随机变量的概率分布是不一致的。临界值 $D_{KS}$由下式确定：
-$$P(D &amp;gt; D_{KS}) = \alpha,$$
-即两个分布不一致时的概率为 $\alpha$。$\alpha$ 是显著水平，而置信度为 $𝑝 = 1 − \alpha$。或者说，在 $D &amp;lt; D_{KS}$ 时，两个分布是一致的置信度为 $𝑝$。
-临界值 $D_{KS}$和两个分布的样本数 $(N_1,N_2)$有关，在样本数足够大时（超过$35$），临界值为：</description>
-    </item>
-    
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangboting.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>统计学</title>
-      <link>http://example.org/post/statistics/</link>
-      <pubDate>Tue, 06 Jun 2023 23:58:13 +0800</pubDate>
+      <link>https://wangboting.github.io/post/staticstics/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/post/statistics/</guid>
-      <description>有两个测量量 $A$ 和 $B$，测量误差分别为 $\sigma_A$ 和 $\sigma_B$，它们的相关系数为 $\rho$，问 $f=3A+2B$ 的误差是多少？ 根据误差传递公式，可以得到 $f$ 的误差为：
-$$ \sigma_f = \sqrt{(3\sigma_A)^2 + (2\sigma_B)^2 + 2(3\times 2 \times \rho \sigma_A \sigma_B)} $$
-其中 $\rho$ 是相关系数。将其代入上式可以得到：
-$$ \sigma_f = \sqrt{9\sigma_A^2 + 4\sigma_B^2 + 12\rho \sigma_A \sigma_B} $$
-因此，$f=3A+2B$ 的误差是 $\sqrt{9\sigma_A^2 + 4\sigma_B^2 + 12\rho \sigma_A \sigma_B}$。</description>
+      <guid>https://wangboting.github.io/post/staticstics/</guid>
+      <description>统计学1. 有两个测量量 $A$ 和 $B$，测量误差分别为 $\sigma_A$ 和 $\sigma_B$，它们的相关系数为 $\rho$，问 $f=3A+2B$ 的误差是多少？根据误差传递公式，可以得到 $f$ 的误差为：\[\sigma_f = \sqrt{(3\sigma_A)^2 + (2\sigma_B)^2 + 2(3\times 2 \times \rho \sigma_A \sigma_B)}\]其中 $\rho$ 是相关系数。将其代入上式可以得到：$$\sigma_f = \sqrt{9\sigma_A^2 + 4\sigma_B^2 + 12\rho \sigma_A \sigma_B}$$因此，$f=3A+2B$ 的误差是 $\sqrt{9\sigma_A^2 + 4\sigma_B^2 + 12\rho \sigma_A \sigma_B}$。</description>
     </item>
     
   </channel>
