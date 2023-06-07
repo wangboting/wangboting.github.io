@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangboting.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>天文统计学</title>
+      <link>https://wangboting.github.io/post/tongji/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangboting.github.io/post/tongji/</guid>
+      <description>&lt;!DOCTYPE html&gt;天文统计学天文统计学1. 有两个测量量 $A$ 和 $B$，测量误差分别为 $\sigma_A$ 和 $\sigma_B$，它们的相关系数为 $\rho$，问 $f=3A+2B$ 的误差是多少？
+解:根据误差传递公式，可以得到 $f$ 的误差为：\[\sigma_f = \sqrt{(3\sigma_A)^2 + (2\sigma_B)^2 + 2(3\times 2 \times \rho \sigma_A \sigma_B)}\]其中 $\rho$ 是相关系数。将其代入上式可以得到：$$\sigma_f = \sqrt{9\sigma_A^2 + 4\sigma_B^2 + 12\rho \sigma_A \sigma_B}$$因此，$f=3A+2B$ 的误差是 $\sqrt{9\sigma_A^2 + 4\sigma_B^2 + 12\rho \sigma_A \sigma_B}$。
+2. 已知概率密度$𝑝(𝑥, 𝑦)$，求概率密度$𝑝(ln(\frac{x}{y}), 𝑙𝑛(𝑥 + 𝑦))$。
+解: 我们可以使用变量替换法来求解这个问题。令 $u = \ln(\frac{x}{y})$ 和 $v = \ln(x + y)$，则有：$$\begin{aligned}x &amp;= ye^u, \\x + y &amp;= e^v.</description>
+    </item>
+    
+    <item>
       <title>统计学</title>
       <link>https://wangboting.github.io/post/staticstics/</link>
       <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
